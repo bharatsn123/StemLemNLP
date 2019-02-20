@@ -12,7 +12,7 @@ def det():
             unique_string = data.replace(".","")
             cnt.append(unique_string)
    print(cnt)
-   
+   //using Lanstemmer to stem the words
    lanstemmer = LancasterStemmer()
    final = []
    stop_words = set(stopwords.words('english'))
@@ -29,8 +29,9 @@ def det():
                     s += i + " "
                     
        final.append(s)
-   print(final)
+   print(final) //printing the result on console
    
+   //transfering the resultant matrix to .csv file
    vec = CountVectorizer()
    X = vec.fit_transform(final)
    df = pd.DataFrame(X.toarray(),columns=vec.get_feature_names())
